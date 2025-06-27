@@ -46,25 +46,6 @@ int main()
         precompute(a);
         ll ans = (fact[a]*(invfact[b]*invfact[a-b]%MOD))%MOD;
         cout << ans << "\n";
-        /*
-        ll num=1,den=1;
-        if(a>2*b){
-            for(int i=a-b+1;i<=a;i++){
-                num=(num*i)%mod;
-                den=(den*(a+1-i))%mod;
-            }
-            int ans = (num*x_y(den,mod-2,mod))%mod;
-            cout << ans << "\n";
-        }
-        if(a<=2*b){
-            for(int i=b+1;i<=a;i++){
-                num=(num*i)%mod;
-                den=(den*(a+1-i))%mod; 
-            }
-            int ans = (num*x_y(den,mod-2,mod))%mod;
-            cout << ans << "\n";
-        }
-        */
     }
     return 0;
 }
