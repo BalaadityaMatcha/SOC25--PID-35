@@ -7,26 +7,46 @@
 using namespace std;
 
 //Your function here
-int mod = 1e9 + 7;
-int x_y(int x,int y,int m=mod){
-    if((!x && !y) || x==1) return 1;
-    int res=1;
-    while(y>0){
-        if(y%2){res = (1LL * res * x)%m;}
-        x = 1LL * x * x % m;
-        y/=2;
+int MOD = 1e9 + 7;
+
+vector<ll> fact = {1}, invfact = {1};
+
+ll power(ll a, ll b, ll mod = MOD) {
+    ll res = 1;
+    while (b) {
+        if (b % 2) res = res * a % mod;
+        a = a * a % mod;
+        b /= 2;
     }
     return res;
+}
+
+void precompute(int n){
+    int _size = fact.size();
+    if(n+1 > _size){
+        while(_size!=n+1){
+            fact.push_back((fact[_size-1]*_size)%MOD);
+            invfact.push_back((invfact[_size-1]*power(_size,MOD-2))%MOD);
+            _size++;
+        }
+    }
 }
 
 int main()
 {
     ios::sync_with_stdio(false);cin.tie(nullptr);
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
     int n;cin >> n;
     while(n--){
         int a,b;cin >> a >> b;
-        if(b==0){cout << "1\n";continue;}
-        if(b==1){cout << a << "\n";continue;}
+        if(b == 0 || b == a){cout << "1\n";continue;}
+        if(b == 1 || b == a-1){cout << a << "\n";continue;}
+        
+        precompute(a);
+        ll ans = (fact[a]*(invfact[b]*invfact[a-b]%MOD))%MOD;
+        cout << ans << "\n";
+        /*
         ll num=1,den=1;
         if(a>2*b){
             for(int i=a-b+1;i<=a;i++){
@@ -44,6 +64,7 @@ int main()
             int ans = (num*x_y(den,mod-2,mod))%mod;
             cout << ans << "\n";
         }
+        */
     }
     return 0;
 }
