@@ -1,5 +1,3 @@
-//not done
-
 #include<bits/stdc++.h>
 #define ll long long int
 #define out(a,n,k) for(int lambda=0;lambda<n;lambda++){cout<<a[lambda]<<k;}
@@ -15,7 +13,11 @@ int main()
     ios::sync_with_stdio(false);cin.tie(nullptr);
     freopen("input.txt","r",stdin);
     freopen("output.txt","w",stdout);
-    string s;
-    getline(cin,s);
+    int t; cin >> t;
+    while(t--){
+        ll a, b; cin >> a >> b;
+        ll ans = min({a,b,(a + b)/4});
+        cout << ans << '\n';
+    }
     return 0;
 }

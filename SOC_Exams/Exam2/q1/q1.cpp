@@ -1,5 +1,3 @@
-//not done
-
 #include<bits/stdc++.h>
 #define ll long long int
 #define out(a,n,k) for(int lambda=0;lambda<n;lambda++){cout<<a[lambda]<<k;}
@@ -13,9 +11,17 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(false);cin.tie(nullptr);
-    freopen("input.txt","r",stdin);
-    freopen("output.txt","w",stdout);
-    string s;
-    getline(cin,s);
+    int t;cin >> t;
+    while(t--){
+        int n;cin >> n;
+        ll sqr=0;
+        for(int i=0;i<n;i++){
+            int x;cin >> x;
+            sqr+=x;
+        }
+        ll root = sqrt(sqr);
+        if(root * root != sqr) cout << "NO\n";
+        else cout << "YES\n";
+    }
     return 0;
 }

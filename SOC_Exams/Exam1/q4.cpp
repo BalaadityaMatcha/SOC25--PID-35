@@ -1,5 +1,3 @@
-//not done
-
 #include<bits/stdc++.h>
 #define ll long long int
 #define out(a,n,k) for(int lambda=0;lambda<n;lambda++){cout<<a[lambda]<<k;}
@@ -15,7 +13,15 @@ int main()
     ios::sync_with_stdio(false);cin.tie(nullptr);
     freopen("input.txt","r",stdin);
     freopen("output.txt","w",stdout);
-    string s;
-    getline(cin,s);
+    int n;cin >> n;
+    vi a(n);in(a,n)
+    if(n%2){
+        nth_element(a.begin(),a.begin()+n/2,a.end());
+        cout << a[n/2];
+    }
+    else{
+        nth_element(a.begin(),a.begin()+(n/2 - 1),a.end());
+        cout << a[n/2 - 1];
+    }
     return 0;
 }

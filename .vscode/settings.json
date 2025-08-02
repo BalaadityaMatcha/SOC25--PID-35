@@ -4,6 +4,20 @@
         "xutility": "cpp",
         "iostream": "cpp",
         "istream": "cpp",
-        "initializer_list": "cpp"
+        "initializer_list": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "xlocnum": "cpp",
+        "xtr1common": "cpp",
+        "ios": "cpp",
+        "exception": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "ostream": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp",
+        "xiosbase": "cpp",
+        "cstdlib": "cpp"
     }
 }
