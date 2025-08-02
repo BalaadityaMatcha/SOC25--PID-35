@@ -19,12 +19,9 @@ void dijkstras(const vector<vector<pair<int,int>>>& adj,int x,vector<pair<ll,int
         q.pop();
         if(processed[node]) continue;
         processed[node] = true;
-        int pm = dis[node].second;
         for(auto x : adj[node]){
             int p = x.first,w = x.second;
-            int im = dis[p].second;
-            int nm = max(pm,w);
-            if(dis[p].first - im + im/2 > -d + w - nm + nm/2){
+            if(dis[p].first> -d + w){
                 dis[p].first = -d+w;
                 dis[p].second = nm;
                 q.push({-dis[p].first,p});
@@ -44,16 +41,10 @@ int main()
         int a,b,c;cin >> a >> b >> c;
         adj[a].pb(mp(b,c));
     }
-    vector<pair<ll,int>> dis(n+1,{1e15,0});
-    dis[1]={0,0};
+    vector<vector<ll>> dis(n+1);
     vector<bool> processed(n+1,false);
     dijkstras(adj,1,dis,processed);
     ll a = dis[n].first;
     int b = dis[n].second;
-    cout << a - b + b/2;
-    cout << "\n";
-    for(int i=1;i<=n;i++){
-        cout << "(" << dis[i].first << "," << dis[i].second << ") ";
-    }
     return 0;
 }
